@@ -41,9 +41,9 @@ This project is a Telegram bot that logs user actions to an SQLite database and 
     docker build -t telegram-bot .
     ```
 
-2. Run the container:
+2. Run the container with a volume for the database:
     ```sh
-    docker run -d --name telegram-bot telegram-bot
+    docker run -d --name telegram-bot -v data:/app/data telegram-bot
     ```
 
 ## Usage
