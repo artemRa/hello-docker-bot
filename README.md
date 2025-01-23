@@ -1,50 +1,36 @@
 # Telegram Bot with SQLite Logging
 
-This project is a Telegram bot that logs user actions to an SQLite database and returns the number of interactions.
+This project is a Telegram bot that logs user actions to an SQLite database and returns the number of interactions. The main goal of this project is to test how Docker works using a Telegram bot example with a separate SQLite database from `data`-folder and environment variable from `.env`.
 
-## Setup and Run
+## Docker Setup
 
-### Local Setup
-
-1. Clone the repository:
+1. Make image based on `Dockerfile`:
     ```sh
-    git clone <your-repo-url>
-    cd <repo-name>
+    docker build -t hello-docker-bot:latest .
     ```
 
-2. Install dependencies:
+2. Run container:
     ```sh
-    pip install -r requirements.txt
+    docker run -d `
+    -v "${PWD}\data:/app/data" `
+    --env-file .\.env `
+    --name hello-docker-bot_container `
+    hello-docker-bot:latest
     ```
 
-3. Create a `config.json` file with your Telegram token:
-    ```json
-    {
-        "TOKEN": "your_telegram_token"
-    }
-    ```
-
-4. Initialize the database:
+3. Stop container:
     ```sh
-    python db_init.py
+    docker stop hello-docker-bot_container
     ```
 
-5. Run the bot:
+## Run from .venv
+
+1. Add variable:
     ```sh
-    python bot.py
+    $env:TELEGRAM_TOKEN = "XXX"
     ```
 
-### Docker Setup
-
-1. Build the Docker image:
-    ```sh
-    docker build -t telegram-bot .
-    ```
-
-2. Run the container with a volume for the database:
-    ```sh
-    docker run -d --name telegram-bot -v data:/app/data telegram-bot
-    ```
+2. Run `bot.py`
 
 ## Usage
 

@@ -1,12 +1,10 @@
-import json
+import os
 import platform
 import sqlite3
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-with open('config.json', 'r', encoding='utf-8') as config_file:
-    config = json.load(config_file)
-TOKEN = config['TOKEN']
+TOKEN = os.getenv('TELEGRAM_TOKEN')
 DB_PATH = "data/hello-docker-log.db"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
