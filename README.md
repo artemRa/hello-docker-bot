@@ -1,6 +1,6 @@
 # Telegram Bot with SQLite Logging
 
-This project is a Telegram bot that logs user actions to an SQLite database and returns the number of interactions. The main goal of this project is to test how Docker works using a Telegram bot example with a separate SQLite database from `data`-folder and environment variable from `.env`.
+This project is a Telegram bot that logs user actions to an SQLite database and returns the number of interactions. The main goal of this project is to test how Docker works using a Telegram bot example with a separate SQLite database from `data` and environment variable from `.env`.
 
 ## Docker Setup
 
@@ -31,6 +31,8 @@ This project is a Telegram bot that logs user actions to an SQLite database and 
     ```
 
 2. Run `bot.py`
+
+3. Press `Ctrl+C` to stop
 
 ## Usage
 
